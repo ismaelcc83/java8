@@ -1,6 +1,12 @@
 # Java 8 Features
 
+![Maven Build](https://github.com/ismaelcc83/java8/actions/workflows/maven.yml/badge.svg)
+
 Practical exploration of some relevant features introduced in Java 8.
+
+This repository contains small, focused and executable examples designed to understand the main programming improvements
+introduced with Java 8, including lambda expressions, streams, the new Date and Time API, `Optional` and default methods
+in interfaces.
 
 ## Author
 
@@ -18,18 +24,29 @@ Created by [Ismael Castro Capafons](https://github.com/ismaelcc83)
 
 ```text
 src
-└── main
+├── main
+│   └── java
+│       └── dev
+│           └── eltiempovuela
+│               └── java8
+│                   └── jeps
+│                       ├── App.java
+│                       ├── DefaultMethods.java
+│                       ├── Jep107.java
+│                       ├── Jep126.java
+│                       ├── Jep150.java
+│                       └── OptionalDemo.java
+└── test
     └── java
         └── dev
             └── eltiempovuela
                 └── java8
                     └── jeps
-                        ├── App.java
-                        ├── Jep126.java
-                        ├── Jep107.java
-                        ├── Jep150.java
-                        ├── OptionalDemo.java
-                        └── DefaultMethods.java
+                        ├── DefaultMethodsTest.java
+                        ├── Jep107Test.java
+                        ├── Jep126Test.java
+                        ├── Jep150Test.java
+                        └── OptionalDemoTest.java
 ```
 
 ## Requirements
@@ -40,22 +57,70 @@ src
 ## How to compile
 
 ```bash
-  mvn clean compile
+mvn clean compile
 ```
 
 ## How to run
 
-Run the `App` class.
+Run the `App` class from your IDE.
 
-If the Maven Exec Plugin is configured, you can also run:
+The application shows a simple console menu where each option executes one Java 8 example.
+
+## How to test
 
 ```bash
-  mvn exec:java
+mvn clean test
 ```
 
-The application shows a simple menu where each option executes one Java 8 example.
+## How to verify
+
+Run the full Maven verification lifecycle:
+
+```bash
+mvn clean verify
+```
+
+This command compiles the project, runs the tests and executes the configured quality checks.
+
+## How to format
+
+If Spotless is configured in the `pom.xml`, format the code with:
+
+```bash
+mvn spotless:apply
+```
+
+To check formatting without modifying files:
+
+```bash
+mvn spotless:check
+```
+
+## Continuous Integration
+
+This project includes a GitHub Actions workflow that runs the Maven build automatically on pushes and pull requests.
+
+The workflow executes:
+
+```bash
+mvn clean verify
+```
 
 ## Purpose
 
 The goal of this project is to explore and understand Java 8 features through small, simple and executable code
 examples.
+
+The examples are intentionally simple, but the project also includes unit tests and build automation to keep the
+repository clean, maintainable and closer to a professional Java project structure.
+
+## Notes
+
+Java 8 introduced important changes to the language and the standard library. The examples in this repository focus on
+the most relevant additions for day-to-day backend development:
+
+- using lambda expressions to make code more expressive;
+- using streams to process collections declaratively;
+- using the Date and Time API instead of older date classes;
+- using `Optional` to represent optional values more explicitly;
+- using default methods to evolve interfaces without breaking implementations.
